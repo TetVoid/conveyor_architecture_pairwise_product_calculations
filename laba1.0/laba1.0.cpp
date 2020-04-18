@@ -123,7 +123,7 @@ vector<int> stageOfMultiplication(int stage, vector<int> firstTerm, vector<int> 
 	return answer;
 }
 
-void Stage(int stage, vector<int> firstTerm[3], vector<int>secondTerm[3], vector<int> tempAnswer[3], int change[3])
+void Stage(int stage, vector<int> firstTerm[3], vector<int>secondTerm[3], vector<int> tempAnswer[3], int change[3],int *tact)
 {
 	if (stage <= 6)
 	{
@@ -139,8 +139,14 @@ void Stage(int stage, vector<int> firstTerm[3], vector<int>secondTerm[3], vector
 			change[i]++;
 			if (index == 0)
 			{
-				newStage = thread(Stage, stage + 1, firstTerm, secondTerm, tempAnswer, change);
+				newStage = thread(Stage, stage + 1, firstTerm, secondTerm, tempAnswer, change, tact);
 				index = 1;
+				(*tact)++;
+			}
+			else
+			{
+				if (stage == 6)
+					(*tact)++;
 			}
 		}
 		if (newStage.joinable())
@@ -153,7 +159,7 @@ void Stage(int stage, vector<int> firstTerm[3], vector<int>secondTerm[3], vector
 void main()
 {
 	vector<int> tempTerm[3], firstNumb[3], secondNumb[3];
-	int firstIntNumb[3], secondIntNumb[3], changes[3] = { 1,1,1 };
+	int firstIntNumb[3], secondIntNumb[3], changes[3] = { 1,1,1 }, tact = 0;
 
 	for (int i = 0; i < 3; i++)
 		cin >> firstIntNumb[i];
@@ -166,8 +172,10 @@ void main()
 		secondNumb[i] = fromIntToBool(secondIntNumb[i]);
 	}
 
-	Stage(1, firstNumb, secondNumb, tempTerm, changes);
+	Stage(1, firstNumb, secondNumb, tempTerm, changes,&tact);
 
 	for (int i = 0; i < 3; i++)
-		cout << fromBoolToInt(tempTerm[i]);
+		cout << fromBoolToInt(tempTerm[i])<<" ";
+
+	cout <<endl<<"quantity of tacts"<< tact;
 }

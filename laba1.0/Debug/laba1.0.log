@@ -1,6 +1,5 @@
-﻿  pch.cpp
-  laba1.0.cpp
+﻿  laba1.0.cpp
 c:\users\asus-pc\desktop\labi\mrz\laba1.0\laba1.0\laba1.0.cpp(52): warning C4244: +=: преобразование "double" в "int", возможна потеря данных
 c:\users\asus-pc\desktop\labi\mrz\laba1.0\laba1.0\laba1.0.cpp(98): warning C4018: <: несоответствие типов со знаком и без знака
-c:\users\asus-pc\desktop\labi\mrz\laba1.0\laba1.0\laba1.0.cpp(154): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+c:\users\asus-pc\desktop\labi\mrz\laba1.0\laba1.0\laba1.0.cpp(160): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
   laba1.0.vcxproj -> C:\Users\ASUS-PC\Desktop\labi\mrz\laba1.0\Debug\laba1.0.exe
